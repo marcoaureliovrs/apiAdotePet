@@ -7,7 +7,7 @@ export default app => {
 
 
 
-  /**
+/**
    * @api {post} /token Token autenticado
    * @apiGroup Credencial
    * @apiParam {String} email Email de usuário
@@ -26,27 +26,24 @@ export default app => {
    * @apiErrorExample {json} Erro de autenticação
    *    HTTP/1.1 401 Unauthorized
    */
-  
-  app.post('/token', (req, res) => {
+  app.post("/token", (req, res) => {
     if (req.body.email && req.body.password) {
       const email = req.body.email;
       const password = req.body.password;
-      console.log(Users);
-      Users.findOne({ where: { email } })
-      .then(user => {
-        console.log(user.password);
-        if (Users.isPassword(user.password, password)) {
-          const payload = { id: user.id };
-          res.json({
-            token: jwt.encode(payload, config.jwtSecret),
-          });
-        } else {
-          res.sendStatus(HttpStatus.UNAUTHORIZED);
-        }
-      })
-      .catch(() => res.sendStatus(HttpStatus.UNAUTHORIZED));
+      Users.findOne({where: {email: email}})
+        .then(user => {
+          if (Users.isPassword(user.password, password)) {
+            const payload = {id: user.id};
+            res.json({
+              token: jwt.encode(payload, cfg.jwtSecret)
+            });
+          } else {
+            res.sendStatus(401);
+          }
+        })
+        .catch(error => res.sendStatus(401));
     } else {
-      res.sendStatus(HttpStatus.UNAUTHORIZED);
+      res.sendStatus(401);
     }
   });
 };

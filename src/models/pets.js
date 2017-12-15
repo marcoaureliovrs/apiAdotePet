@@ -18,6 +18,13 @@ export default (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
+        },
+        img_pet: {
+            type: DataType.STRING(1000),
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         }
     });
 

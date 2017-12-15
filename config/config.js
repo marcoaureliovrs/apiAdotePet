@@ -1,10 +1,10 @@
 export default {
     database:'adotepet',
-    username: 'adotepet',
-    password: 'superfacil',
+    username:'adotepet',
+    password: 'superfacil!',
     params:{
-        dialect: 'sqlite',
-        storange: `${process.env.NODE_ENV}_pets.sqlite`,
+        dialect: 'mysql',
+        host: 'adotepet.mysql.dbaas.com.br',
         define:{
             underscored: true
         }

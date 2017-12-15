@@ -5,20 +5,22 @@ export default (app, Pets) => {
     const usersApi = new UsersApi(app.datasource.models.Users);
 
     app.route('/users')
-    .all(app.auth.authenticate())
+    //.all(app.auth.authenticate())
     .get((req, res) =>{
         usersApi.getAll()
             .then(response => {
                 res.status(response.statusCode);
                 res.json(response.data);
             });
-    })
+    });
+
+    app.route('/users')
     .post((req, res) =>{
         usersApi.create(req.body)
             .then(response => {
                 res.status(response.statusCode);
                 res.json(response.data);
-            });
+        });
     });
     
     app.route('/users/:id')

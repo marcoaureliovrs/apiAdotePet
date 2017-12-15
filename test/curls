@@ -1,0 +1,13 @@
+
+
+Criar Cadastro
+curl http://localhost:3000/user -X POST -v -H "Content-type: application/json" -d @jsons/createUser.json | json_pp
+
+
+Autenticar
+curl http://localhost:3000/token -X POST -v -H "Content-type: application/json" -d @jsons/userAuth.json | json_pp
+
+
+Listar animais
+curl http://localhost:3000/pets -X GET -v -H "Content-type: application/json" -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.m0iE3Zq9Y8lh6kYNvZoKM4SYIPEADuMfKpCCU1vFK6k"
+

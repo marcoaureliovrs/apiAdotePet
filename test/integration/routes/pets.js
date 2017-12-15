@@ -4,6 +4,7 @@ import jwt from 'jwt-simple';
 describe('Routes pets', () => {
    
     const Users = app.datasource.models.Users;
+
     const jwtSecret = app.config.jwtSecret; 
     
     const Pets = app.datasource.models.Pets;
@@ -11,21 +12,28 @@ describe('Routes pets', () => {
     const defaultPet = {
         id: 1,
         name: 'Teddy',
-        description: 'Cachorro dócil'
+        description: 'Cachorro dócil',
+        img_pet: 'https://scontent.fcgh8-1.fna.fbcdn.net/v/t1.0-9/13256383_559531604228416_9042595307216890191_n.jpg?oh=6300c8557fe114b19e75689a7b256b49&oe=5ABFAF2C'
     };
+let token;
 
-    let token;
-
-/**
- 
-     beforeEach(done => {
+     before(done => {
         Users
         .destroy({ where: {} })
         .then(() => Users.create({
-          id: 1,
-          name: 'John',
-          email: 'john@gmail.com',
-          password: '12345',
+            id: 1,
+            name: 'Test User',
+            email: 'test@mail.com',
+            password: 'testPassword',
+            data_nascimento: '1992-07-26',
+            cpf:'',
+            rg:'',
+            cep:'',
+            estado:'',
+            cidade:'',
+            logradouro:'',
+            numero:666,
+            url_profile:''
         }))
         .then(user => {
           Pets
@@ -37,24 +45,6 @@ describe('Routes pets', () => {
           });
         });
       });
-*/
-
-    const defaultUser = {
-        id: 1,
-        name: 'Usuário Teste',
-        email: 'teste@teste.com.br',
-        password: 'teste1020'
-    };
-
-    beforeEach(done => {
-        Users
-        .destroy({where: {}})
-        .then(() => Users.create(defaultUser))
-        .then(user => {
-          token = jwt.encode({id: user.id}, jwtSecret);
-          done();
-        });
-      });
 
     describe('Route GET /pets', () => {
         it('should return a list of pets', done=> {
@@ -64,7 +54,8 @@ describe('Routes pets', () => {
                 .end((err, res) =>{
                     expect(res.body[0].id).to.be.eql(defaultPet.id);
                     expect(res.body[0].name).to.be.eql(defaultPet.name);
-                    expect(res.body[0].description).to.be.eql(defaultPet.description);              
+                    expect(res.body[0].description).to.be.eql(defaultPet.description);
+                    console.log(res.body);              
                     done(err);
                 });
         });
@@ -78,7 +69,8 @@ describe('Routes pets', () => {
                 .end((err, res) =>{
                     expect(res.body.id).to.be.eql(defaultPet.id);
                     expect(res.body.name).to.be.eql(defaultPet.name);
-                    expect(res.body.description).to.be.eql(defaultPet.description);                
+                    expect(res.body.description).to.be.eql(defaultPet.description);
+                    console.log(res.body);             
                     done(err);
                 });
         });
@@ -89,7 +81,8 @@ describe('Routes pets', () => {
             const newPet = {
                 id: 2,
                 name: 'Hamtaro',
-                description: 'Hamster dócil'
+                description: 'Hamster dócil',
+                img_pet: 'https://scontent.fcgh8-1.fna.fbcdn.net/v/t1.0-9/13256383_559531604228416_9042595307216890191_n.jpg?oh=6300c8557fe114b19e75689a7b256b49&oe=5ABFAF2C'
             };
             request
                 .post('/pets')
@@ -98,7 +91,8 @@ describe('Routes pets', () => {
                 .end((err, res) =>{
                     expect(res.body.id).to.be.eql(newPet.id);
                     expect(res.body.name).to.be.eql(newPet.name);
-                    expect(res.body.description).to.be.eql(newPet.description);                
+                    expect(res.body.description).to.be.eql(newPet.description);
+                    console.log(res.body);                     
                     done(err);
                 });
         });
@@ -108,16 +102,16 @@ describe('Routes pets', () => {
         it('should update a pet', done=> {
             
             const updatedPet = {
-                id: 2,
                 name: 'Hamtaro Hamster',
-                description: 'Hamster dócil'
+                description: 'Hamster dócil',
+                img_pet: 'https://scontent.fcgh8-1.fna.fbcdn.net/v/t1.0-9/13256383_559531604228416_9042595307216890191_n.jpg?oh=6300c8557fe114b19e75689a7b256b49&oe=5ABFAF2C'
             };
             request
-                .put('/pets/1')
+                .put('/pets/2')
                 .set('Authorization', `JWT ${token}`)
                 .send(updatedPet)
                 .end((err, res) =>{
-                    expect(res.body).to.be.eql([1]);              
+                    expect(res.body).to.be.eql([1]);
                     done(err);
                 });
         });
@@ -134,6 +128,5 @@ describe('Routes pets', () => {
                 });
         });
     });
-
 
 });

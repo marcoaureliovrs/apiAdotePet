@@ -9,33 +9,14 @@ describe('Routes pets', () => {
 
     let token;
 
-    /*beforeEach(done => {
+    beforeEach(done => {
         Pets
             .destroy({where: {}})
             .then(() => Pets.create(defaultPets))
             .then(() => {
                 done();
             });
-    });*/
-
-    beforeEach(done => {
-        Users
-        .destroy({ where: {} })
-        .then(() => Users.create({
-          name: 'John',
-          email: 'john@gmail.com',
-          password: '12345',
-        }))
-        .then(user => {
-          Pets
-          .destroy({ where: {} })
-          .then(() => Pets.create(defaultPets))
-          .then(() => {
-            token = jwt.encode({ id: user.id }, jwtSecret);
-            done();
-          });
-        });
-      });
+    });
 
 
     describe('Route GET /pets', () => {

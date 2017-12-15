@@ -10,11 +10,17 @@ describe('Routes: Users', () => {
     name: 'Test User',
     email: 'test@mail.com',
     password: 'testPassword',
+    data_nascimento: '1992-07-26T20:31:40.000Z',
+    cpf:'',
+    rg:'',
+    cep:'',
+    estado:'',
+    cidade:'',
+    numero:666,
+    url_profile:''
   };
 
-  let token;
-
-  beforeEach(done => {
+  before(done => {
     Users
     .destroy({where: {}})
     .then(() => Users.create(defaultUser))

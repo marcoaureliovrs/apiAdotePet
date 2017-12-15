@@ -16,6 +16,7 @@ export default (sequelize, DataType) => {
         },
         email: {
             type: DataType.STRING,
+            unique: true,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -27,6 +28,35 @@ export default (sequelize, DataType) => {
             validate: {
                 notEmpty: true
             }
+        },
+        data_nascimento:{
+            type: DataType.DATE,
+        },
+        cpf: {
+            type: DataType.BIGINT,
+            unique: true
+        },
+        rg: {
+            type: DataType.STRING,
+            unique: true
+        },
+        cep: {
+            type: DataType.BIGINT
+        },
+        estado: {
+            type: DataType.STRING
+        },
+        cidade: {
+            type: DataType.STRING
+        },
+        logradouro: {
+            type: DataType.STRING
+        },
+        numero: {
+            type: DataType.INTEGER 
+        },
+        url_profile: {
+            type: DataType.STRING
         }
     },
     {

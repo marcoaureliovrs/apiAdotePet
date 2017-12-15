@@ -5,13 +5,21 @@ import jwt from 'jwt-simple';
 describe('Routes users', () => {
     
     const Users = app.datasource.models.Users;
-
     const jwtSecret = app.config.jwtSecret;    
     const defaultUser = {
         id: 1,
-        name: 'Usuário Teste',
-        email: 'teste@teste.com.br',
-        password: 'teste1020'
+        name: 'Test User',
+        email: 'test@mail.com',
+        password: 'testPassword',
+        data_nascimento: '1992-07-26',
+        cpf:'',
+        rg:'',
+        cep:'',
+        estado:'',
+        cidade:'',
+        logradouro:'',
+        numero:666,
+        url_profile:''
     };
     let token;
 
@@ -33,7 +41,7 @@ describe('Routes users', () => {
                 .end((err, res) => {
                     expect(res.body[0].name).to.be.eql(defaultUser.name);
                     expect(res.body[0].id).to.be.eql(defaultUser.id);
-                    //expect(res.body[0].email).to.be.eql(defaultUser.email);
+                    expect(res.body[0].email).to.be.eql(defaultUser.email);
 
                     done(err);
                 });
@@ -107,6 +115,4 @@ describe('Routes users', () => {
                 })
         });
     });
-
-
 });

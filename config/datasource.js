@@ -16,8 +16,8 @@ const loadModels = (sequelize) => {
 
 export default (app) => {
 if(!database) {
-    const config = app.config,
-    sequelize = new Sequelize(
+    const config = app.config;
+    const sequelize = new Sequelize(
         config.database,
         config.username,
         config.password,
