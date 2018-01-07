@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm run test-unit & npm run test-integration & npm run test-integration",
+    "test": "npm run test-unit & npm run test-integration",
     "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js",
     "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js",
     "test-contract": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/contracts/**/*.js",

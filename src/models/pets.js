@@ -20,7 +20,7 @@ export default (sequelize, DataType) => {
             }
         },
         img_pet: {
-            type: DataType.STRING(1000),
+            type: DataType.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true

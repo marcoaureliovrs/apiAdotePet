@@ -4,12 +4,13 @@ describe('Routes pets', () => {
     const defaultPets = {
         id: 1,
         name: 'Teddy',
-        description: 'Cachorro dócil'
+        description: 'Cachorro dócil',
+        img_pet: 'http://teste.com.br'
     };
 
     let token;
 
-    beforeEach(done => {
+    before(done => {
         Pets
             .destroy({where: {}})
             .then(() => Pets.create(defaultPets))
@@ -18,13 +19,13 @@ describe('Routes pets', () => {
             });
     });
 
-
     describe('Route GET /pets', () => {
-        it('should return a list of pets', done=> {
+        it('should return a list of pets', done => {
             const petsList = Joi.array().items(Joi.object().keys({
                 id: Joi.number(),
                 name: Joi.string(),
                 description: Joi.string(),
+                img_pet: Joi.string(),
                 created_at: Joi.date().iso(),
                 updated_at: Joi.date().iso()
 
@@ -34,7 +35,8 @@ describe('Routes pets', () => {
                 .get('/pets')
                 .set('Authorization', `JWT ${token}`)
                 .end((err, res) =>{
-                    joiAssert(res.body, petsList);            
+                    joiAssert(res.body, petsList);
+                    console.log(petsList);            
                     done(err);
                 })
         });
@@ -46,6 +48,7 @@ describe('Routes pets', () => {
                 id: Joi.number(),
                 name: Joi.string(),
                 description: Joi.string(),
+                img_pet: Joi.string(),
                 created_at: Joi.date().iso(),
                 updated_at: Joi.date().iso()
 
@@ -65,13 +68,15 @@ describe('Routes pets', () => {
             const newPet = {
                 id: 2,
                 name: 'Hamtaro',
-                description: 'Hamster dócil'
+                description: 'Hamster dócil',
+                img_pet: 'http://teste.com.br'
             };
 
             const pet = Joi.object().keys({
                 id: Joi.number(),
                 name: Joi.string(),
                 description: Joi.string(),
+                img_pet: Joi.string(),
                 created_at: Joi.date().iso(),
                 updated_at: Joi.date().iso()
 
@@ -94,13 +99,14 @@ describe('Routes pets', () => {
             const updatedPet = {
                 id: 2,
                 name: 'Hamtaro Hamster',
-                description: 'Hamster dócil'
+                description: 'Hamster dócil',
+                img_pet: 'http://teste.com.br'
             };
 
             const updatedCount = Joi.array().items(1);
             
             request
-                .put('/pets/1')
+                .put('/pets/2')
                 .set('Authorization', `JWT ${token}`)
                 .send(updatedPet)
                 .end((err, res) =>{
@@ -113,7 +119,7 @@ describe('Routes pets', () => {
     describe('Route DELETE /pets/{id}', () => {
         it('should delete a pet', done=> {
             request
-                .delete('/pets/1')
+                .delete('/pets/2')
                 .set('Authorization', `JWT ${token}`)
                 .end((err, res) =>{
                     expect(res.statusCode).to.be.eql(204);      
@@ -121,6 +127,5 @@ describe('Routes pets', () => {
                 })
         });
     });
-
 
 });
