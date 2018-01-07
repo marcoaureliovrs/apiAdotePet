@@ -34,7 +34,7 @@ E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/mast
     },
     jwtSecret: 'Ad0t3p3t!',
     jwtSession: { session: false}
-}```
+    }```
 
 * Inicie o servidor: `npm start`.
 * Rodar os testes: `npm test`
