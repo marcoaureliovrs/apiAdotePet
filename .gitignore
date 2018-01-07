@@ -3,4 +3,4 @@ npm-debug.log
 .DS_Store
 public/apidoc
 logs/*.log
-./config/config.js
+config.js
