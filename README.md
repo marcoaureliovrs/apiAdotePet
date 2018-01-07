@@ -21,20 +21,22 @@ E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/mast
 * Acesse o diretório do projeto: `cd apiAdotePet`
 * Instale as dependências: `npm install`
 * Configure o ambiente de banco de dados que irá utilizar criando o arquivo ```config/config.js```:
-    ```export default {
-    database:'adotepet',
-    username:'root',
-    password: '',
-    params:{
-        dialect: 'mysql', //Você pode escolher sqlite ou mysql
-        host: 'localhost',
-        define:{
-            underscored: true
-        }
-    },
-    jwtSecret: 'Ad0t3p3t!',
-    jwtSession: { session: false}
-    }```
+    ```
+    export default {
+        database:'adotepet',
+        username:'root',
+        password: '',
+        params:{
+            dialect: 'mysql', //Você pode escolher sqlite ou mysql
+            host: 'localhost',
+            define:{
+                underscored: true
+            }
+        },
+        jwtSecret: 'Ad0t3p3t!',
+        jwtSession: { session: false}
+    }
+    ```
 
 * Inicie o servidor: `npm start`.
 * Rodar os testes: `npm test`
