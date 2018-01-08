@@ -11,8 +11,15 @@
     "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js",
     "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js",
     "test-contract": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/contracts/**/*.js",
-    "start": "babel-node cluster.js",
-    "server": "babel-node server.js"
+    "start": "npm run apidoc && babel-node cluster.js",
+    "server": "npm run apidoc && babel-node server.js",
+    "apidoc": "apidoc -i src/routes -o public/apidoc"
+  },
+  "apidoc": {
+    "name": "AdotePet - Documentação da API",
+    "template": {
+      "forceLanguage": "pt_br"
+    }
   },
   "keywords": [
     "adotepet",
@@ -42,6 +49,7 @@
     "sqlite3": "^3.1.13"
   },
   "devDependencies": {
+    "apidoc": "^0.17.6",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
     "supertest": "^3.0.0",
