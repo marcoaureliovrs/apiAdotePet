@@ -11,7 +11,7 @@
     "test-integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*.js",
     "test-unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*.js",
     "test-contract": "NODE_ENV=test mocha --opts test/contracts/mocha.opts test/contracts/contracts/**/*.js",
-    "start": "babel-node server.js"
+    "start": "babel-node cluster.js"
   },
   "keywords": [
     "adotepet",

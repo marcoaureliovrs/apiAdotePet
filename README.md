@@ -1,6 +1,7 @@
 # AdotePet Api
 
 API Node.js para doação e adoção de animais.
+
 Projeto sem fins lucrativos, a idéia é desenvolver um aplicativo nos moldes do Tinder para centralizar a doação e a adoção de animais. Esta é apenas a API que suportará toda a integração com o Banco de Dados que persistirá as informações.
 
 ## Módulos
