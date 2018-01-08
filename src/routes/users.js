@@ -5,7 +5,7 @@ export default (app, Pets) => {
     const usersApi = new UsersApi(app.datasource.models.Users);
 
     app.route('/users')
-    //.all(app.auth.authenticate())
+    .all(app.auth.authenticate())
     .get((req, res) =>{
         usersApi.getAll()
             .then(response => {
