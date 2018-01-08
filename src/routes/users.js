@@ -9,8 +9,6 @@ export default (app, Pets) => {
     .get((req, res) =>{
         usersApi.getAll()
             .then(response => {
-                res.setHeader('Content-Type', 'application/json');
-                res.setHeader('Access-Control-Allow-Origin', '*');
                 res.status(response.statusCode);
                 res.json(response.data);
             });
@@ -21,8 +19,6 @@ export default (app, Pets) => {
         console.log(req.body);
         usersApi.create(req.body)
             .then(response => {
-                res.setHeader('Content-Type', 'application/json');
-                res.setHeader('Access-Control-Allow-Origin', '*');
                 res.status(response.statusCode);
                 res.json(response.data);
         });
@@ -33,8 +29,6 @@ export default (app, Pets) => {
     .get((req, res) =>{
         usersApi.getById(req.params)
             .then(response => {
-                res.setHeader('Content-Type', 'application/json');
-                res.setHeader('Access-Control-Allow-Origin', '*');
                 res.status(response.statusCode);
                 res.json(response.data);
         });
@@ -44,8 +38,6 @@ export default (app, Pets) => {
         console.log(req.body);
         usersApi.update(req.body, req.params)
             .then(response => {
-                res.setHeader('Content-Type', 'application/json');
-                res.setHeader('Access-Control-Allow-Origin', '*');
                 res.status(response.statusCode);
                 res.json(response.data);
         });
@@ -54,8 +46,6 @@ export default (app, Pets) => {
     .delete((req, res) =>{
         usersApi.delete(req.params)
             .then(response => {
-                res.setHeader('Content-Type', 'application/json');
-                res.setHeader('Access-Control-Allow-Origin', '*');
                 res.status(response.statusCode);
                 res.json(response.data);
         });
