@@ -1,7 +1,7 @@
 
 
 Criar Cadastro
-curl http://localhost:3000/user -X POST -v -H "Content-type: application/json" -d @jsons/createUser.json | json_pp
+curl http://localhost:3000/users -X POST -v -H "Content-type: application/json" -d @jsons/createUser.json | json_pp
 
 
 Autenticar

@@ -5,7 +5,8 @@ describe('Routes pets', () => {
    
     const Users = app.datasource.models.Users;
 
-    const jwtSecret = app.config.jwtSecret; 
+    const jwtSecret = app.config.jwtSecret;
+    console.log(jwtSecret);
     
     const Pets = app.datasource.models.Pets;
     
