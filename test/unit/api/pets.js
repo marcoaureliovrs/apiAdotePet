@@ -1,4 +1,4 @@
-import PetsApi from '../../../src/api/pets'
+import PetsApi from '../../../app/api/pets'
 
 
 describe('API: Pets', () => {

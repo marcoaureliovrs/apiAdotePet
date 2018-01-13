@@ -1,4 +1,4 @@
-import app from './app';
+import app from './config/express';
 
 
 app.datasource.sequelize.sync().done(() => {

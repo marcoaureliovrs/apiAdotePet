@@ -1,17 +1,17 @@
 import express from 'express';
-import config from './config/config';
-import datasource from './config/datasource';
+import config from './config';
+import datasource from './datasource';
 import bodyParser from 'body-parser';
 import helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
 import morgan from "morgan";
-import logger from "./config/logger.js";
+import logger from "./logger.js";
 
-import petsRouter from './src/routes/pets';
-import usersRouter from './src/routes/users';
-import authRouter from './src/routes/auth';
-import authorization from './src/api/auth';
+import petsRouter from '../app/routes/pets';
+import usersRouter from '../app/routes/users';
+import authRouter from '../app/routes/auth';
+import authorization from '../app/api/auth';
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import UsersApi from '../../../src/api/users'
+import UsersApi from '../../../app/api/users'
 
 
 describe('Controllers: Users', () => {
