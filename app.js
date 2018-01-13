@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import helmet from "helmet";
 import compression from "compression";
 import cors from "cors";
+import morgan from "morgan";
+import logger from "./config/logger.js";
 
 import petsRouter from './src/routes/pets';
 import usersRouter from './src/routes/users';
@@ -22,7 +24,13 @@ const auth = authorization(app);
 
 app.auth = auth;
 
-
+app.use(morgan("common", {
+    stream: {
+      write: (message) => {
+        logger.info(message);
+      }
+    }
+  }));
 app.use(helmet());
 app.use(cors());
 app.use(compression());

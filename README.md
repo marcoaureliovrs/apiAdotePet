@@ -28,6 +28,8 @@ E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/mast
 * Instale as dependências: `npm install`
 * Configure o ambiente de banco de dados que irá utilizar criando o arquivo ```config/config.js```:
     ```
+    import logger from "./logger.js";
+    
     export default {
         database:'adotepet',
         username:'root',
@@ -35,6 +37,9 @@ E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/mast
         params:{
             dialect: 'mysql', //Você pode escolher sqlite ou mysql
             host: 'localhost',
+            logging: (sql) => {
+                logger.info(`[${new Date()}] ${sql}`);
+            },
             define:{
                 underscored: true
             }

@@ -45,11 +45,13 @@
     "jwt-simple": "^0.5.1",
     "memcached": "^2.2.2",
     "memcached-promisify": "^2.0.0",
+    "morgan": "^1.9.0",
     "mysql2": "^1.5.1",
     "passport": "^0.4.0",
     "passport-jwt": "^2.1.0",
     "sequelize": "^4.27.0",
-    "sqlite3": "^3.1.13"
+    "sqlite3": "^3.1.13",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "apidoc": "^0.17.6",
