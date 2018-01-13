@@ -9,7 +9,6 @@ const errorResponse = (message, statusCode = HttpStatus.BAD_REQUEST) => defaultR
     error: message
 }, statusCode);
 
-
 class UsersApi {
     constructor(Users) {
         this.Users = Users;
@@ -24,7 +23,7 @@ class UsersApi {
     getById(params) {
         return this.Users.findOne({where: params})
             .then(result => defaultResponse(result))
-            .catch(error => errorResponse(error.message));
+            .catch(error => errorResponse(error.message));      
     }
 
     create(data) {

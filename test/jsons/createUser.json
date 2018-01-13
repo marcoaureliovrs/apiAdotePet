@@ -1,5 +1,15 @@
 {
-    "name": "Teste",
-    "email": "teste@teste.com.br",
-    "password": "teste"
+    "id": 1,
+    "name": "Test User",
+    "email": "test@mail.com",
+    "password": "testPassword",
+    "data_nascimento": "1992-07-26",
+    "cpf":"",
+    "rg":"",
+    "cep":"",
+    "estado":"",
+    "cidade":"",
+    "logradouro":"",
+    "numero":666,
+    "url_profile":""
 }

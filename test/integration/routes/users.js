@@ -23,7 +23,7 @@ describe('Routes users', () => {
     };
     let token;
 
-    beforeEach(done => {
+    before(done => {
         Users
         .destroy({where: {}})
         .then(() => Users.create(defaultUser))
@@ -72,10 +72,11 @@ describe('Routes users', () => {
                 password: 'teste1020'
             };
             request
-                .post('/users')
+                .post('/user')
                 .set('Authorization', `JWT ${token}`)
                 .send(newUser)
                 .end((err, res) =>{
+                    console.log(res.body);
                     expect(res.body.id).to.be.eql(newUser.id);
                     expect(res.body.name).to.be.eql(newUser.name);
                     expect(res.body.email).to.be.eql(newUser.email);           
@@ -94,7 +95,7 @@ describe('Routes users', () => {
                 password: 'teste1020'
             };
             request
-                .put('/users/1')
+                .put('/users/2')
                 .set('Authorization', `JWT ${token}`)
                 .send(updatedUser)
                 .end((err, res) =>{

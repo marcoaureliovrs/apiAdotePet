@@ -13,8 +13,13 @@ Projeto sem fins lucrativos, a idéia é desenvolver um aplicativo nos moldes do
 * [Chai](http://chaijs.com/) - Interface BDD e TDD para implementação de testes
 * [ApiDoc](http://apidocjs.com/) - Gerador de documentação de APIs baseado em comentários no código
 * [Babel](https://babeljs.io/) - Transpiler EcmaScript 6
+* [Memcached-promisify](https://www.npmjs.com/package/memcached-promisify) - Memcached com promise
 
 E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/master/package.json) do projeto.
+
+## Pré Requisitos
+* Memcached
+* MySQL ou SQLite
 
 ## Instalação
 
@@ -36,6 +41,8 @@ E tem mais no [package.json](https://github.com/marcogorak/apiAdotePet/blob/mast
         },
         jwtSecret: 'Ad0t3p3t!',
         jwtSession: { session: false}
+        //Memcached
+        hostMemcached: 'localhost:11211'
     }
     ```
 

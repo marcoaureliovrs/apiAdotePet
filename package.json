@@ -43,6 +43,8 @@
     "joi": "^13.0.2",
     "joi-assert": "0.0.3",
     "jwt-simple": "^0.5.1",
+    "memcached": "^2.2.2",
+    "memcached-promisify": "^2.0.0",
     "mysql2": "^1.5.1",
     "passport": "^0.4.0",
     "passport-jwt": "^2.1.0",
